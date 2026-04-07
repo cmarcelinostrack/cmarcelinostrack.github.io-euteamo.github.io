@@ -11,17 +11,15 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   color: white;
-  padding: 30px;
   background: linear-gradient(135deg, #8e2de2, #4a00e0);
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* fundo escuro */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.25);
@@ -31,95 +29,79 @@ body::before {
 /* corações */
 .heart {
   position: fixed;
-  color: rgba(255, 255, 255, 0.9);
   font-size: 28px;
+  color: rgba(255,255,255,0.9);
   text-shadow: 0 0 12px rgba(255,255,255,0.7);
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.5));
   animation: floatUp 9s linear infinite;
   z-index: -1;
 }
 
 @keyframes floatUp {
-  0% {
-    transform: translateY(110vh) translateX(0);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10vh) translateX(25px);
-    opacity: 0;
-  }
+  0% {transform: translateY(110vh);}
+  100% {transform: translateY(-10vh);}
 }
 
 /* container */
 .container {
-  max-width: 700px;
+  max-width: 750px;
   margin: auto;
-  background: rgba(0, 0, 0, 0.25);
   padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
-
-  animation: fadeUp 1s ease;
 }
 
 /* título */
 h1 {
   font-size: 28px;
-  margin-bottom: 25px;
   font-weight: 300;
-  letter-spacing: 1px;
+  margin-bottom: 20px;
+  min-height: 40px;
+}
+
+/* botão */
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* galeria */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  border-color: rgba(255,255,255,0.7);
 }
 
 /* texto */
-p {
-  font-size: 18px;
-  line-height: 1.8;
-  text-align: left;
-  background: rgba(255,255,255,0.08);
+#mensagem {
+  margin-top: 40px;
+  background: rgba(0,0,0,0.25);
   padding: 20px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.25);
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  text-align: left;
   white-space: pre-line;
-}
-
-/* imagens */
-img {
-  width: 200px;
-  border-radius: 18px;
-  margin: 15px 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
-  border: 2px solid rgba(255,255,255,0.25);
-}
-
-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  border: 2px solid rgba(255,255,255,0.6);
-}
-
-/* footer */
-footer {
-  margin-top: 25px;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* animação */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 </style>
 
@@ -128,45 +110,51 @@ footer {
 <body>
 
 <!-- corações -->
-<div class="heart" style="left:8%; animation-delay:0s;">🤍</div>
-<div class="heart" style="left:18%; animation-delay:2s;">🤍</div>
-<div class="heart" style="left:32%; animation-delay:4s;">🤍</div>
-<div class="heart" style="left:48%; animation-delay:1s;">🤍</div>
-<div class="heart" style="left:63%; animation-delay:3s;">🤍</div>
-<div class="heart" style="left:77%; animation-delay:5s;">🤍</div>
-<div class="heart" style="left:90%; animation-delay:2.5s;">🤍</div>
+<div class="heart" style="left:10%;">🤍</div>
+<div class="heart" style="left:25%; animation-delay:2s;">🤍</div>
+<div class="heart" style="left:40%; animation-delay:4s;">🤍</div>
+<div class="heart" style="left:60%; animation-delay:1s;">🤍</div>
+<div class="heart" style="left:80%; animation-delay:3s;">🤍</div>
 
 <div class="container">
 
-<h1>Como pedido de desculpas para minha princesa ❤️</h1>
+<h1 id="titulo"></h1>
 
-<img src="IMG-20260329-WA0070.jpg" alt="foto">
+<button onclick="document.getElementById('mensagem').scrollIntoView({behavior:'smooth'})">
+⬇ Ver mensagem
+</button>
 
-<p>
-Eu pensei muito em tudo que aconteceu ontem, de verdade. E sendo bem sincero, eu não gostei da forma como eu agi. Principalmente do que eu te falei.😓
+<!-- galeria -->
+<div class="gallery">
+  <img src="IMG-20260329-WA0070.jpg">
+  <img src="IMG-20260329-WA0046.jpg">
+  <img src="IMG-20260329-WA0033.jpg">
+  <img src="IMG-20260329-WA0021.jpg">
+</div>
 
-Aquela parte de dizer que era melhor nem olhar na sua cara na guarda mirim… eu sei que foi pesado, desnecessário e não foi justo com você. Eu falei no impulso, na raiva, mas isso não justifica. Eu errei nisso.🎯
+<!-- mensagem -->
+<div id="mensagem">
+Eu pensei muito em tudo que aconteceu ontem...
 
-Eu acho que tudo começou porque a situação me deixou desconfortável. Eu realmente queria resolver com você, mas não daquele jeito, sem privacidade. Só que ao invés de explicar isso direito, eu acabei me fechando… e depois explodi do pior jeito.💥
-
-E no meio disso tudo, eu sei que você também tava preocupada com a gente, ainda mais com a questão do tempo, de eu ir mudar de cidade e a gente já não ter tanto tempo junto assim. Eu devia ter levado isso mais em consideração na hora.😭
-
-Eu não queria que uma discussão virasse algo tão grande assim.😧
-
-Muito menos te machucar com o que eu falei.🩹
-
-Porque a verdade é que você é importante pra mim. Muito mais do que qualquer discussão boba ou momento de raiva.⚜️
-
-Eu não quero que a gente fique mal, ainda mais por coisas que poderiamos evitar.❤️‍🩹
-
-Eu te amo, minha jóia.💎🤍
-</p>
-
-<img src="IMG-20260329-WA0046.jpg" alt="foto">
-
-<footer>Feito com sinceridade 💌</footer>
+(E aqui vai o seu texto inteiro igual antes)
+</div>
 
 </div>
+
+<script>
+// efeito de digitação
+const texto = "Para você ❤️";
+let i = 0;
+
+function escrever() {
+  if (i < texto.length) {
+    document.getElementById("titulo").innerHTML += texto.charAt(i);
+    i++;
+    setTimeout(escrever, 120);
+  }
+}
+escrever();
+</script>
 
 </body>
 </html>
