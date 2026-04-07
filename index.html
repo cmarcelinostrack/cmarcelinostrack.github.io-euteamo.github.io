@@ -21,7 +21,6 @@ body {
   position: relative;
 }
 
-/* animação de entrada */
 @keyframes entrarSite {
   to {
     opacity: 1;
@@ -115,7 +114,7 @@ button:hover {
   white-space: pre-line;
 }
 
-/* CORAÇÕES FLUTUANTES */
+/* CORAÇÕES */
 .heart {
   position: fixed;
   bottom: -20px;
@@ -124,6 +123,8 @@ button:hover {
   animation: subir linear forwards;
   pointer-events: none;
   z-index: 1;
+
+  will-change: transform, opacity;
 }
 
 @keyframes subir {
@@ -131,9 +132,7 @@ button:hover {
     transform: translateY(0) scale(1);
     opacity: 0;
   }
-  10% {
-    opacity: 1;
-  }
+  10% { opacity: 1; }
   100% {
     transform: translateY(-110vh) scale(1.6);
     opacity: 0;
@@ -141,7 +140,6 @@ button:hover {
 }
 
 </style>
-
 </head>
 
 <body>
@@ -154,35 +152,31 @@ button:hover {
 ⬇ Ver mensagem
 </button>
 
-<!-- GALERIA -->
 <div class="gallery">
   <img src="IMG-20260329-WA0070.jpg">
   <img src="IMG-20260329-WA0046.jpg">
 </div>
 
-<!-- IMAGEM DO MEIO -->
 <div class="mid-image">
   <img src="IMG_20260329_122924_169.webp">
 </div>
 
-<!-- TEXTO -->
 <div id="mensagem">
-Eu pensei muito em tudo que aconteceu ontem, de verdade. E sendo bem sincero, eu não gostei da forma como eu agi. 😓
+Eu pensei muito em tudo que aconteceu ontem, de verdade. E sendo bem sincero, eu não gostei da forma como eu agi. Principalmente do que eu te falei.😓
 
-Aquela parte de dizer que era melhor nem olhar na sua cara… eu errei nisso.🎯
+Aquela parte de dizer que era melhor nem olhar na sua cara na guarda mirim… eu sei que foi pesado, desnecessário e não foi justo com você. Eu falei no impulso, na raiva, mas isso não justifica. Eu errei nisso.🎯
 
-Eu acabei me fechando e explodindo, e isso não foi justo.💥
+Eu acho que tudo começou porque a situação me deixou desconfortável. Eu queria resolver com você, mas não daquele jeito. Só que acabei me fechando… e explodi.💥
 
-Você também tava preocupada com a gente, e eu devia ter ouvido mais.😭
+Você também tava preocupada com a gente, e eu devia ter considerado isso mais.😭
 
-Eu não queria que virasse uma coisa grande.😧
+Eu não queria que isso virasse algo grande.😧
 
-Você é importante pra mim.❤️‍🩹
+Você é importante pra mim. Mais do que qualquer briga.❤️‍🩹
 
 Eu te amo, minha jóia.💎🤍
 </div>
 
-<!-- FINAL -->
 <div style="margin-top:30px; text-align:center; opacity:0.95;">
 
   <img src="IMG-20260329-WA0048.jpg"
@@ -220,8 +214,12 @@ function escrever() {
 }
 escrever();
 
-/* CORAÇÕES FLUTUANTES */
+/* CORAÇÕES COM LIMITE (SEM BUG) */
+let maxCoracoes = 25;
+
 function criarCoracao() {
+  if (document.querySelectorAll(".heart").length > maxCoracoes) return;
+
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.innerHTML = "🤍";
@@ -241,7 +239,7 @@ function criarCoracao() {
   }, duration * 1000);
 }
 
-setInterval(criarCoracao, 250);
+setInterval(criarCoracao, 450);
 </script>
 
 </body>
