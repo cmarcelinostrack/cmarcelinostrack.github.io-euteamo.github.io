@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pedido de desculpa pra minha princesa ❤️</title>
+<title>Para você ❤️</title>
 
 <style>
 body {
@@ -17,6 +17,8 @@ body {
   opacity: 0;
   transform: translateY(15px);
   animation: entrarSite 1.2s ease forwards;
+
+  position: relative;
 }
 
 @keyframes entrarSite {
@@ -26,7 +28,7 @@ body {
   }
 }
 
-/* fundo escuro fixo */
+/* fundo escuro */
 body::before {
   content: "";
   position: fixed;
@@ -36,28 +38,42 @@ body::before {
   pointer-events: none;
 }
 
-/* CORAÇÕES CORRIGIDOS */
-.heart {
+/* CONTAINER DOS CORAÇÕES */
+#hearts {
   position: fixed;
-  font-size: 28px;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 0 12px rgba(255,255,255,0.7);
-  animation: floatUp 9s linear infinite;
-  z-index: 2;
+  inset: 0;
+  overflow: hidden;
   pointer-events: none;
+  z-index: 1;
 }
 
-@keyframes floatUp {
-  0% {transform: translateY(110vh);}
-  100% {transform: translateY(-10vh);}
+/* CORAÇÃO */
+.heart {
+  position: absolute;
+  font-size: 24px;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+  animation: subir linear forwards;
 }
 
+@keyframes subir {
+  from {
+    transform: translateY(110vh);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+
+/* conteúdo */
 .container {
   max-width: 750px;
   margin: auto;
   padding: 25px;
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
 h1 {
@@ -120,11 +136,7 @@ button:hover {
 <body>
 
 <!-- CORAÇÕES -->
-<div class="heart" style="left:10%;">🤍</div>
-<div class="heart" style="left:25%; animation-delay:2s;">🤍</div>
-<div class="heart" style="left:40%; animation-delay:4s;">🤍</div>
-<div class="heart" style="left:60%; animation-delay:1s;">🤍</div>
-<div class="heart" style="left:80%; animation-delay:3s;">🤍</div>
+<div id="hearts"></div>
 
 <div class="container">
 
@@ -151,21 +163,17 @@ button:hover {
 
 <!-- TEXTO -->
 <div id="mensagem">
-Eu pensei muito em tudo que aconteceu ontem, de verdade. E sendo bem sincero, eu não gostei da forma como eu agi. Principalmente do que eu te falei.😓
+Eu pensei muito em tudo que aconteceu ontem, de verdade. E sendo bem sincero, eu não gostei da forma como eu agi. 😓
 
-Aquela parte de dizer que era melhor nem olhar na sua cara na guarda mirim… eu sei que foi pesado, desnecessário e não foi justo com você. Eu falei no impulso, na raiva, mas isso não justifica. Eu errei nisso.🎯
+Aquela parte de dizer que era melhor nem olhar na sua cara… eu errei nisso.🎯
 
-Eu acho que tudo começou porque a situação me deixou desconfortável. Eu realmente queria resolver com você, mas não daquele jeito, sem privacidade. Só que ao invés de explicar isso direito, eu acabei me fechando… e depois explodi do pior jeito.💥
+Eu acabei me fechando e explodindo, e isso não foi justo.💥
 
-E no meio disso tudo, eu sei que você também tava preocupada com a gente, ainda mais com a questão do tempo, de eu ir mudar de cidade e a gente já não ter tanto tempo junto assim. Eu devia ter levado isso mais em consideração na hora.😭
+Você também tava preocupada com a gente, e eu devia ter ouvido mais.😭
 
-Eu não queria que uma discussão virasse algo tão grande assim.😧
+Eu não queria que virasse uma coisa grande.😧
 
-Muito menos te machucar com o que eu falei.🩹
-
-Porque a verdade é que você é importante pra mim. Muito mais do que qualquer discussão boba ou momento de raiva.⚜️
-
-Eu não quero que a gente fique mal, ainda mais por coisas que poderiamos evitar.❤️‍🩹
+Você é importante pra mim.❤️‍🩹
 
 Eu te amo, minha jóia.💎🤍
 </div>
@@ -186,7 +194,7 @@ Eu te amo, minha jóia.💎🤍
        margin-bottom:10px;">
 
   <p style="font-size:16px; margin:0;">
-    Se você leu até aqui… então isso era importante pra mim.
+    Se você leu até aqui… isso significava algo.
   </p>
 
   <p style="font-size:18px; margin-top:8px;">🤍</p>
@@ -207,6 +215,25 @@ function escrever() {
   }
 }
 escrever();
+
+/* CORAÇÕES DINÂMICOS */
+function criarHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "🤍";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+  heart.style.fontSize = (16 + Math.random() * 18) + "px";
+
+  document.getElementById("hearts").appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 10000);
+}
+
+setInterval(criarHeart, 300);
 </script>
 
 </body>
