@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Para você ❤️</title>
+<style>
+body {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  padding: 50px;
+}
+h1 {
+  font-size: 3em;
+}
+p {
+  font-size: 1.5em;
+  max-width: 600px;
+  margin: auto;
+}
+button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: #ff4d6d;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ffe0e6;
+}
+</style>
+</head>
+<body>
+
+<h1>Oi, meu amor ❤️</h1>
+
+<p>
+Desde que você entrou na minha vida, tudo ficou mais leve.  
+Eu não sou muito bom com palavras… então fiz um site só pra você.
+</p>
+
+<button onclick="mostrarMensagem()">Clica aqui 💌</button>
+
+<p id="mensagem"></p>
+
+<script>
+function mostrarMensagem() {
+  document.getElementById("mensagem").innerHTML =
+  "Você é a melhor parte dos meus dias. Eu te amo. 💖";
+}
+</script>
+
+</body>
+</html>
