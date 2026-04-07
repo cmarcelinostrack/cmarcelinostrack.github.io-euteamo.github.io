@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para você ❤️</title>
+<title>Pedido de desculpa pra minha princesa ❤️</title>
 
 <style>
 body {
@@ -123,4 +123,91 @@ button:hover {
 <div class="heart" style="left:10%;">🤍</div>
 <div class="heart" style="left:25%; animation-delay:2s;">🤍</div>
 <div class="heart" style="left:40%; animation-delay:4s;">🤍</div>
-<div class="heart"
+<div class="heart" style="left:60%; animation-delay:1s;">🤍</div>
+<div class="heart" style="left:80%; animation-delay:3s;">🤍</div>
+
+<div class="container">
+
+<h1 id="titulo"></h1>
+
+<button onclick="document.getElementById('mensagem').scrollIntoView({behavior:'smooth'})">
+⬇ Ver mensagem
+</button>
+
+<!-- GALERIA -->
+<div class="gallery">
+  <img src="IMG-20260329-WA0070.jpg">
+  <img src="IMG-20260329-WA0046.jpg">
+</div>
+
+<!-- IMAGEM DO MEIO -->
+<div style="margin-top:12px;">
+  <img src="IMG_20260329_122924_169.webp"
+       style="width:100%; max-width:320px;
+       border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);">
+</div>
+
+<!-- TEXTO -->
+<div id="mensagem">
+Eu pensei muito em tudo que aconteceu ontem, de verdade. E sendo bem sincero, eu não gostei da forma como eu agi. Principalmente do que eu te falei.😓
+
+Aquela parte de dizer que era melhor nem olhar na sua cara na guarda mirim… eu sei que foi pesado, desnecessário e não foi justo com você. Eu falei no impulso, na raiva, mas isso não justifica. Eu errei nisso.🎯
+
+Eu acho que tudo começou porque a situação me deixou desconfortável. Eu realmente queria resolver com você, mas não daquele jeito, sem privacidade. Só que ao invés de explicar isso direito, eu acabei me fechando… e depois explodi do pior jeito.💥
+
+E no meio disso tudo, eu sei que você também tava preocupada com a gente, ainda mais com a questão do tempo, de eu ir mudar de cidade e a gente já não ter tanto tempo junto assim. Eu devia ter levado isso mais em consideração na hora.😭
+
+Eu não queria que uma discussão virasse algo tão grande assim.😧
+
+Muito menos te machucar com o que eu falei.🩹
+
+Porque a verdade é que você é importante pra mim. Muito mais do que qualquer discussão boba ou momento de raiva.⚜️
+
+Eu não quero que a gente fique mal, ainda mais por coisas que poderiamos evitar.❤️‍🩹
+
+Eu te amo, minha jóia.💎🤍
+</div>
+
+<!-- FINAL -->
+<div style="margin-top:30px; text-align:center; opacity:0.95;">
+
+  <img src="IMG-20260329-WA0048.jpg"
+       style="width:170px; border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);
+       margin-bottom:10px;">
+
+  <img src="IMG_20260324_190559.jpg"
+       style="width:170px; border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);
+       margin-bottom:10px;">
+
+  <p style="font-size:16px; margin:0;">
+    Se você leu até aqui… então isso era importante pra mim.
+  </p>
+
+  <p style="font-size:18px; margin-top:8px;">🤍</p>
+
+</div>
+
+</div>
+
+<script>
+const texto = "Para você ❤️";
+let i = 0;
+
+function escrever() {
+  if (i < texto.length) {
+    document.getElementById("titulo").innerHTML += texto.charAt(i);
+    i++;
+    setTimeout(escrever, 120);
+  }
+}
+escrever();
+</script>
+
+</body>
+</html>
