@@ -1,5 +1,252 @@
 <!DOCTYPE html>
+<html lang="pt-br"><!DOCTYPE html>
 <html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como pedido de desculpa pra minha jóia 💎 ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  overflow-x: hidden;
+
+  opacity: 0;
+  transform: translateY(15px);
+  animation: entrarSite 1.2s ease forwards;
+
+  position: relative;
+}
+
+/* animação de entrada */
+@keyframes entrarSite {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* fundo escuro leve */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* conteúdo */
+.container {
+  max-width: 750px;
+  margin: auto;
+  padding: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  min-height: 40px;
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* galeria */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* imagem do meio */
+.mid-image {
+  margin-top: 12px;
+}
+
+.mid-image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 15px;
+  border: 2px solid rgba(255,255,255,0.4);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* mensagem */
+#mensagem {
+  margin-top: 40px;
+  background: rgba(0,0,0,0.25);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  text-align: left;
+  white-space: pre-line;
+}
+
+/* CORAÇÕES FLUTUANTES */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  animation: subir linear forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.6);
+    opacity: 0;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="titulo"></h1>
+
+<button onclick="document.getElementById('mensagem').scrollIntoView({behavior:'smooth'})">
+⬇ Ver mensagem
+</button>
+
+<!-- GALERIA -->
+<div class="gallery">
+  <img src="IMG-20260329-WA0070.jpg">
+  <img src="IMG-20260329-WA0046.jpg">
+</div>
+
+<!-- IMAGEM DO MEIO -->
+<div class="mid-image">
+  <img src="IMG_20260329_122924_169.webp">
+</div>
+
+<!-- TEXTO -->
+<div id="mensagem">
+Eu pensei muito em tudo que aconteceu ontem, de verdade. 😓
+
+Eu errei na forma como falei com você.🎯
+
+Eu me fechei e explodi, e isso não foi justo.💥
+
+Você se importou comigo, e eu devia ter ouvido mais.😭
+
+Eu não queria que virasse isso.😧
+
+Você é importante pra mim.❤️‍🩹
+
+Eu te amo, minha jóia.💎🤍
+</div>
+
+<!-- FINAL -->
+<div style="margin-top:30px; text-align:center; opacity:0.95;">
+
+  <img src="IMG-20260329-WA0048.jpg"
+       style="width:170px; border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);
+       margin-bottom:10px;">
+
+  <img src="IMG_20260324_190559.jpg"
+       style="width:170px; border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);
+       margin-bottom:10px;">
+
+  <p style="font-size:16px; margin:0;">
+    Se você leu até aqui… isso significava algo.
+  </p>
+
+  <p style="font-size:18px; margin-top:8px;">🤍</p>
+
+</div>
+
+</div>
+
+<script>
+const texto = "Para você ❤️";
+let i = 0;
+
+function escrever() {
+  if (i < texto.length) {
+    document.getElementById("titulo").innerHTML += texto.charAt(i);
+    i++;
+    setTimeout(escrever, 120);
+  }
+}
+escrever();
+
+/* CORAÇÕES FLUTUANTES */
+function criarCoracao() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "🤍";
+
+  heart.style.left = Math.random() * 100 + "vw";
+
+  const size = Math.random() * 12 + 12;
+  heart.style.fontSize = size + "px";
+
+  const duration = Math.random() * 4 + 4;
+  heart.style.animationDuration = duration + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, duration * 1000);
+}
+
+setInterval(criarCoracao, 250);
+</script>
+
+</body>
+</html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
