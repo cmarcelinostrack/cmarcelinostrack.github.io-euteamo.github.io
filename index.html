@@ -13,7 +13,18 @@ body {
   color: white;
   background: linear-gradient(135deg, #8e2de2, #4a00e0);
   overflow-x: hidden;
-  scroll-behavior: smooth;
+
+  /* EFEITO DE ENTRADA */
+  opacity: 0;
+  transform: translateY(15px);
+  animation: entrarSite 1.2s ease forwards;
+}
+
+@keyframes entrarSite {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body::before {
@@ -29,7 +40,6 @@ body::before {
   position: fixed;
   font-size: 28px;
   color: rgba(255,255,255,0.9);
-  text-shadow: 0 0 12px rgba(255,255,255,0.7);
   animation: floatUp 9s linear infinite;
   z-index: -1;
 }
@@ -119,10 +129,19 @@ button:hover {
 ⬇ Ver mensagem
 </button>
 
-<!-- GALERIA (SÓ 2 IMAGENS AGORA) -->
+<!-- GALERIA -->
 <div class="gallery">
   <img src="IMG-20260329-WA0070.jpg">
   <img src="IMG-20260329-WA0046.jpg">
+</div>
+
+<!-- IMAGEM DO MEIO (NOVA) -->
+<div style="margin-top:12px;">
+  <img src="IMG_20260329_122924_169.webp"
+       style="width:100%; max-width:320px;
+       border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);">
 </div>
 
 <!-- MENSAGEM -->
@@ -146,7 +165,7 @@ Eu não quero que a gente fique mal, ainda mais por coisas que poderiamos evitar
 Eu te amo, minha jóia.💎🤍
 </div>
 
-<!-- FINAL COM 2 IMAGENS -->
+<!-- FINAL -->
 <div style="margin-top:30px; text-align:center; opacity:0.95;">
 
   <img src="IMG-20260329-WA0048.jpg"
@@ -162,7 +181,7 @@ Eu te amo, minha jóia.💎🤍
        margin-bottom:15px;">
 
   <p style="font-size:16px; margin:0;">
-    Se você leu até aqui… obrigado pela atenção. Eu te amo.
+    Se você leu até aqui… então isso era importante pra mim.
   </p>
 
   <p style="font-size:18px; margin-top:8px;">🤍</p>
