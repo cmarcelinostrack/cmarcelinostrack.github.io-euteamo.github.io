@@ -16,7 +16,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* fundo escuro */
 body::before {
   content: "";
   position: fixed;
@@ -26,7 +25,6 @@ body::before {
   z-index: -2;
 }
 
-/* corações */
 .heart {
   position: fixed;
   font-size: 28px;
@@ -41,14 +39,12 @@ body::before {
   100% {transform: translateY(-10vh);}
 }
 
-/* container */
 .container {
   max-width: 750px;
   margin: auto;
   padding: 25px;
 }
 
-/* título */
 h1 {
   font-size: 28px;
   font-weight: 300;
@@ -56,7 +52,6 @@ h1 {
   min-height: 40px;
 }
 
-/* botão */
 button {
   padding: 12px 18px;
   border: none;
@@ -76,7 +71,7 @@ button:hover {
 /* galeria */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
   margin-top: 25px;
 }
@@ -93,7 +88,7 @@ button:hover {
   border-color: rgba(255,255,255,0.7);
 }
 
-/* texto */
+/* mensagem */
 #mensagem {
   margin-top: 40px;
   background: rgba(0,0,0,0.25);
@@ -124,15 +119,13 @@ button:hover {
 ⬇ Ver mensagem
 </button>
 
-<!-- galeria -->
+<!-- GALERIA (SÓ 2 IMAGENS AGORA) -->
 <div class="gallery">
   <img src="IMG-20260329-WA0070.jpg">
   <img src="IMG-20260329-WA0046.jpg">
-  <img src="IMG-20260329-WA0048.jpg">
-  <img src="IMG_20260324_190559.jpg">
 </div>
 
-<!-- mensagem -->
+<!-- MENSAGEM -->
 <div id="mensagem">
 Eu pensei muito em tudo que aconteceu ontem, de verdade. E sendo bem sincero, eu não gostei da forma como eu agi. Principalmente do que eu te falei.😓
 
@@ -153,10 +146,32 @@ Eu não quero que a gente fique mal, ainda mais por coisas que poderiamos evitar
 Eu te amo, minha jóia.💎🤍
 </div>
 
+<!-- FINAL COM 2 IMAGENS -->
+<div style="margin-top:30px; text-align:center; opacity:0.95;">
+
+  <img src="IMG-20260329-WA0048.jpg"
+       style="width:170px; border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);
+       margin-bottom:10px;">
+
+  <img src="IMG_20260324_190559.jpg"
+       style="width:170px; border-radius:15px;
+       border:2px solid rgba(255,255,255,0.4);
+       box-shadow:0 10px 25px rgba(0,0,0,0.4);
+       margin-bottom:15px;">
+
+  <p style="font-size:16px; margin:0;">
+    Se você leu até aqui… então isso era importante pra mim.
+  </p>
+
+  <p style="font-size:18px; margin-top:8px;">🤍</p>
+
+</div>
+
 </div>
 
 <script>
-// efeito de digitação
 const texto = "Para você ❤️";
 let i = 0;
 
