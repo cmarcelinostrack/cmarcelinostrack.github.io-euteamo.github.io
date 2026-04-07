@@ -2,27 +2,63 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para você ❤️</title>
 
 <style>
 body {
-  background: linear-gradient(to right, #ff758c, #ff7eb3);
-  font-family: Arial;
+  margin: 0;
+  font-family: Arial, sans-serif;
   text-align: center;
   color: white;
-  padding: 40px;
+  padding: 30px;
+
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  background-attachment: fixed;
+}
+
+/* camada escura pra dar contraste */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25);
+  z-index: -1;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 32px;
   margin-bottom: 20px;
 }
 
 p {
-  font-size: 28px;
+  font-size: 20px;
   line-height: 1.8;
-  max-width: 650px;
-  margin: auto;
+  text-align: justify;
+  background: rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+img {
+  width: 220px;
+  border-radius: 20px;
+  margin: 15px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+footer {
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.8;
 }
 </style>
 
@@ -30,10 +66,11 @@ p {
 
 <body>
 
-<h1>Como pedido de desculpas para minha princesa ❤️</h1>
-  
+<div class="container">
 
-<img src="IMG-20260329-WA0070.jpg" width="250" style="border-radius:20px; margin-top:20px;">
+<h1>Como pedido de desculpas para minha princesa ❤️</h1>
+
+<img src="IMG-20260329-WA0070.jpg" alt="foto">
 
 <p>
 Eu pensei muito em tudo que aconteceu ontem, de verdade.
@@ -52,8 +89,16 @@ Muito menos te machucar com o que eu falei.🩹
 
 Porque a verdade é que você é importante pra mim. Muito mais do que qualquer discussão boba ou momento de raiva.⚜️
 
-Eu não quero que a gente fique mal, ainda mais por coisas que poderiamos.❤️‍🩹
+Eu não quero que a gente fique mal, ainda mais por coisas que poderiamos evitar.❤️‍🩹
 
-  Eu te amo, minha jóia.💎🤍
+Eu te amo, minha jóia.💎🤍
+</p>
 
-  <img src="IMG-20260329-WA0046.jpg" width="250" style="border-radius:20px; margin-top:20px;">
+<img src="IMG-20260329-WA0046.jpg" alt="foto">
+
+<footer>Feito com sinceridade 💌</footer>
+
+</div>
+
+</body>
+</html>
